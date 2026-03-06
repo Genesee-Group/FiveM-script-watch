@@ -26,15 +26,12 @@ local ped = 0
 local life = 0
 
 Citizen.CreateThread(function()
-
     while true do
-
         ped = PlayerPedId()
         life = (GetEntityHealth(ped) - 100) / 300 * 100
 
         Citizen.Wait(500)
     end
-
 end)
 
 RegisterNUICallback("action", function(data)
@@ -83,9 +80,7 @@ RegisterNUICallback("action", function(data)
         end
     elseif data.action == "volume+" then
         if Watch.CheckPermission() then
-    
             if xSound:soundExists(musicID) then
-  
                 if xSound:isPlaying(musicID) then
                     xSound:setVolume(musicID, 0.1)
                 end
@@ -116,24 +111,19 @@ end)
 
 function baseSystem()
     if Config.basesystemType == 1 then
-
         RegisterNetEvent("vrp_hud:update")
         AddEventHandler("vrp_hud:update", function(rHunger, rThirst)
             hunger, thirst = 1.0 - (rHunger / 100), 1.0 - (rThirst / 100)
         end)
-
     elseif Config.basesystemType == 2 then
-
         RegisterNetEvent("hud:update")
         AddEventHandler("hud:update", function(rHunger, rThirst)
             hunger, thirst = rHunger, rThirst
         end)
-
     end
 end
 
 function calculateTimeDisplay()
-
     hour = GetClockHours()
     minute = GetClockMinutes()
 
@@ -187,13 +177,10 @@ function show()
 end
 
 Citizen.CreateThread(function()
-
     while true do
-
         WatchOnUpdate()
         Citizen.Wait(0)
     end
-
 end)
 
 function WatchOnUpdate()

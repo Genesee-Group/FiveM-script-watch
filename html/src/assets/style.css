@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	body {
+		background-color: transparent;
+		overflow: hidden;
+		@apply flex justify-end items-end h-screen w-screen font-sans;
+	}
+}
+
+/* Custom Scrollbar (Tailwind requires plugins for scrollbars, raw CSS is easier here) */
+::-webkit-scrollbar {
+	width: 3px;
+	height: 1px;
+}
+::-webkit-scrollbar-track {
+	background: rgba(0, 0, 0, 0.2);
+	border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+	background: rgba(255, 255, 255, 0.3);
+	border-radius: 10px;
+}
+
+/* Utility constraints / complex animations that are too long for inline tailwind classes */
+
+.animate-fade-in {
+	animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+		transform: scale(0.95);
+	}
+	to {
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+
+.marquee-text {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}

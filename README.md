@@ -1,4 +1,4 @@
-# GENESEEWatch
+# FiveM-script-watch
 
 Script feito para substituir a HUD padrao
 
